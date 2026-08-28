@@ -5,7 +5,12 @@ def reverse(x:int):
     reverse = num[::-1]
     if reverse[-1] == "-":
         reverse = reverse[:-1]
-        output = "-{}".format(reverse)
+        if int(reverse) > (2**31 - 1) or int(reverse) < (-2**31):
+                return 0
+        else:
+            output = "-{}".format(reverse)
+    elif int(reverse) > (2**31 - 1) or int(reverse) < (-2**31):
+        return 0
     else:
         output = "{}".format(reverse)
     return int(output)

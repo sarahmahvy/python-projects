@@ -3,20 +3,24 @@
 def sudoku_solver(board:List[List[str]]) -> List[List[str]]:
     def is_valid(board, row, col, num):
         # Check if num is not in the current row and column
-        for i in range(9):
+        i = 0
+        while i < 9:
             if board[row][i] == num or board[i][col] == num:
                 return False
             else:
-                continue
+                i += 1
         
         # Check if num is not in the current 3x3 subgrid
         start_row, start_col = 3 * (row // 3), 3 * (col // 3)
-        for i in range(start_row, start_row + 3):
-            for j in range(start_col, start_col + 3):
+        i = start_row
+        while i < start_row + 3:
+            j = start_col
+            while j < start_col + 3:
                 if board[i][j] == num:
                     return False
                 else:
-                    continue
+                    j += 1
+            i += 1
         
         return True
 
@@ -27,9 +31,8 @@ def sudoku_solver(board:List[List[str]]) -> List[List[str]]:
                     for num in range(1, 10):  # Try numbers 1-9
                         if is_valid(board, row, col, num):
                             board[row][col] = str(num)
-                            if solve(board):  # Recursively try to solve the rest of the board
-                                return True
-                            board[row][col] = "."  # Reset on backtrack
+                        else:
+                            continue # Reset on backtrack
                     return False  # Trigger backtracking
         return True  # Solved
 

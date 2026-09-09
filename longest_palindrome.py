@@ -30,7 +30,12 @@ def longestPalindrome(s: str):
         #else:
             #return s[0]
 
-
+print(longestPalindrome("cbbd"))
+print(longestPalindrome("babad"))
+print(longestPalindrome("abb"))
+print(longestPalindrome("abbcccba"))
+print(longestPalindrome("aacabdkacaa"))
+print(longestPalindrome("abcda"))
 print(longestPalindrome("hannah"))
 
 #temp1 = ""

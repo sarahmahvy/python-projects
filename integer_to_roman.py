@@ -9,8 +9,13 @@ def inttoroman(num:int):
                 break
     return result
 
-print(inttoroman(3))
-print(inttoroman(4))
-print(inttoroman(9))
-print(inttoroman(58))  
-print(inttoroman(1994))
+response = True
+while response:
+    num = int(input("Enter a number you want to convert to Roman numeral: "))
+    if num <= 0:
+        print("Please enter a valid positive integer. (press enter to continue)")
+        continue
+    print(inttoroman(num))
+    response = input("Do you want to continue? (y/n): ")
+    if response.lower() == 'n':
+        response = False

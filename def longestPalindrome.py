@@ -1,6 +1,8 @@
 def longestPalindrome(s:str):
     palindrome = ""
     palindromelen  = 0
+    s = s.replace(" ", "")
+    s = s.lower()
     for i in range(len(s)):
         l = i
         r = i

@@ -1,17 +1,16 @@
 def is_power_of_two(number):
-  # This while loop checks if the "number" can be divided by two
-  # without leaving a remainder. How can you change the while loop to
-  # avoid a Python ZeroDivisionError?
-  while number != 0 or number % 2 == 0:
+  if number == 0:
+    return False
+  while number % 2 == 0:
     number = number / 2
-  # If after dividing by 2 "number" equals 1, then "number" is a power
-  # of 2.
   if number == 1:
     return True
   return False
   
-# Calls to the function
-print(is_power_of_two(0)) # Should be False
-print(is_power_of_two(1)) # Should be True
-print(is_power_of_two(8)) # Should be True
-print(is_power_of_two(9)) # Should be False
+response = True
+while response:
+  number = int(input("Enter a number to check if it is a power of two: "))
+  print(is_power_of_two(number))
+  response = input("Do you want to continue? (y/n): ")
+  if response.lower() == 'n':
+    response = False

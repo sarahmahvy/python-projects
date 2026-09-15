@@ -8,5 +8,14 @@ def isPalindrome(head: Optional[ListNode]) -> bool:
         else:
             return False
 
-print(isPalindrome([1,2,2,1]))
-print(isPalindrome([1,2]))
+response = True
+while response:
+    
+        head = list(map(int, input("Enter the elements of the linked list separated by spaces to find if the list is a palindrome: ").strip().split()))
+        if head == []:
+            print("Please enter a valid list of numbers. (press enter to continue)")
+            response = True
+        print(isPalindrome(head))
+        cont = input("Do you want to continue? (y/n): ")
+        if cont.lower() == 'n':
+            response = False

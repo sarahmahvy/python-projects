@@ -9,11 +9,13 @@ def selfDividingNumbers(left:int, right:int) -> List[int]:
             else:
                 temp = str(digit)
                 for i in temp:
-                    if int(temp) % int(i) == 0:
-                        if int(temp) not in result:
-                            result.append(digit)
+                    if int(temp) % int(i) != 0:
+                        divisible = False
+                        break
                     else:
-                        continue
+                        divisible = True
+                if int(temp) not in result and divisible:
+                    result.append(digit)
     return result
 
 print(selfDividingNumbers(1, 22))

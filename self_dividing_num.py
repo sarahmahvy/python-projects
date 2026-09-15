@@ -18,5 +18,12 @@ def selfDividingNumbers(left:int, right:int) -> List[int]:
                     result.append(digit)
     return result
 
-print(selfDividingNumbers(1, 22))
-print(selfDividingNumbers(47, 85))
+response = True
+
+while response:
+    left = int(input("Enter the start number: "))
+    right = int(input("Enter the ending number: "))
+    print(selfDividingNumbers(left, right))
+    response = input("Do you want to continue? (y/n): ")
+    if response.lower() == 'n':
+        response = False

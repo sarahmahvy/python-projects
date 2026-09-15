@@ -5,5 +5,13 @@ def findMaxK( nums: List[int]) -> int:
                 large = abs(number)
         return large
 
-print(findMaxK([-1,10,6,7,-7,1]))
-print(findMaxK([-10,8,6,7,-2,-3]))
+response = True
+while response:
+    nums = list(map(int, input("Enter the list of numbers separated by a space to find the largest absolute value: ").split()))
+    if nums == []:
+        print("Please enter a valid list of numbers. (press enter to continue)")
+        continue
+    print(findMaxK(nums))
+    response = input("Do you want to continue? (y/n): ")
+    if response.lower() == 'n':
+        response = False

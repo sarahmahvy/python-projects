@@ -8,8 +8,13 @@ def canMakeArithmeticProgression(arr:List[int]) -> bool:
             return False
     return True
 
-print(canMakeArithmeticProgression([3,5,1]))
-print(canMakeArithmeticProgression([1,2,4]))
-print(canMakeArithmeticProgression([1,3,5,7]))
-print(canMakeArithmeticProgression([1,2,3,4,5]))
-print(canMakeArithmeticProgression([1,2,3,5,7]))
+response = True
+while response:
+    arr = list(map(int, input("Enter the list of numbers separated by a space: ").split()))
+    if arr == [] or len(arr) < 2:
+        print("Please enter a valid list of numbers. (press enter to continue)")
+        continue
+    print(canMakeArithmeticProgression(arr))
+    response = input("Do you want to continue? (y/n): ")
+    if response.lower() == 'n':
+        response = False
